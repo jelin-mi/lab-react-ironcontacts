@@ -28,7 +28,7 @@ function App() {
     const popularitySorted = contactsList.sort(
       (a, b) => b.popularity - a.popularity
     );
-    setContacts([popularitySorted, ...contactsList]);
+    setContacts([...popularitySorted]);
   };
 
   const sortByName = () => {
@@ -36,6 +36,14 @@ function App() {
       a.name.localeCompare(b.name)
     );
     setContacts([...nameSorted]);
+  };
+ 
+// Iteration 5 | Remove Contacts
+  const deleteContact = (contactId) => {
+    const filteredContacts = contactsList.filter(contact => {
+      return contact.id !== contactId;
+    });
+    setContacts([...filteredContacts]);
   };
 
   return (
@@ -52,6 +60,7 @@ function App() {
             <td>Popularity</td>
             <td>Won an Oscar</td>
             <td>Won an Emmy</td>
+            <td>Actions</td>
           </tr>
         </thead>
         {contactsList.map((contact) => {
@@ -64,9 +73,10 @@ function App() {
                 <td>{contact.name}</td>
                 <td>{contact.popularity}</td>
 
-                {/* Iteration 2 | Conditionally Display Awards Info */}
+{/* Iteration 2 | Conditionally Display Awards Info */}
                 <td>{contact.wonOscar === true && "🏆"}</td>
-                <td>{contact.wonEmmy === true && "🏆"}</td>
+                <td>{contact.wonEmmy === true && "🏆"}</td>          
+                <td><button onClick={() => deleteContact(contact.id)}>Delete</button></td>
               </tr>
             </tbody>
           );
