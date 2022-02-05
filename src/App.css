@@ -1,48 +1,107 @@
-.App {
+:root {
+  --blue: #2471A3;
+  --light-blue: #D4E6F1;
+  --red: #E74C3C;
+}
+
+h1 {
+  margin-bottom: 35px;
+  text-align: center;
+  color: var(--blue);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+  
+}
+
+.buttons button:hover {
+  background-color: var(--light-blue);
+}
+
+button {
+  padding: 10px 20px;
+  border: var(--blue) 3px solid;
+  background-color: transparent;
+  color: var(--blue);
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+table {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+thead {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 25px;
+}
+
+thead tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: var(--blue);
+  color: #fff;
+  padding: 18px 0;
   text-align: center;
 }
 
-.list img {
-  width: 200px;
+thead td {
+  align-self: center;
 }
 
-.titles {
+tbody {
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+tbody tr {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-} */
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+tbody tr:hover {
+  background-color: var(--light-blue);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+tbody td {
+  align-self: center;
 }
 
-.App-link {
-  color: #61dafb;
+tbody img {
+  width: 80px;
+  border-radius: 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+tr {
+  padding: 10px 0;
+}
+
+td {
+  width: 80px;
+}
+
+.won {
+  font-size: 32px;
 }

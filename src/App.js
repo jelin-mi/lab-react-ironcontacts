@@ -49,11 +49,14 @@ function App() {
   return (
     <div className="App">
       <h1>IronContacts</h1>
-      <button onClick={addRandomContact}>Add Random Contact</button>
+      <div className="buttons">
+        <button onClick={addRandomContact}>Add Random Contact</button>
       <button onClick={sortByPopularity}>Sort by popularity</button>
       <button onClick={sortByName}>Sort by name</button>
+      </div>
+      
       <table>
-        <thead className="titles">
+        <thead>
           <tr>
             <td>Picture</td>
             <td>Name</td>
@@ -65,7 +68,7 @@ function App() {
         </thead>
         {contactsList.map((contact) => {
           return (
-            <tbody key={contact.id} className="list">
+            <tbody key={contact.id}>
               <tr>
                 <td>
                   <img src={contact.pictureUrl} alt="" />
@@ -74,9 +77,9 @@ function App() {
                 <td>{contact.popularity.toFixed(2)}</td>
 
 {/* Iteration 2 | Conditionally Display Awards Info */}
-                <td>{contact.wonOscar === true && "🏆"}</td>
-                <td>{contact.wonEmmy === true && "🏆"}</td>          
-                <td><button onClick={() => deleteContact(contact.id)}>Delete</button></td>
+                <td className="won">{contact.wonOscar === true && "🏆"}</td>
+                <td className="won">{contact.wonEmmy === true && "🏆"}</td>          
+                <td><button className="btn-delete" onClick={() => deleteContact(contact.id)}>Delete</button></td>
               </tr>
             </tbody>
           );
