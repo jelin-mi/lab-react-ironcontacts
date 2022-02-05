@@ -71,7 +71,7 @@ function App() {
                   <img src={contact.pictureUrl} alt="" />
                 </td>
                 <td>{contact.name}</td>
-                <td>{contact.popularity}</td>
+                <td>{contact.popularity.toFixed(2)}</td>
 
 {/* Iteration 2 | Conditionally Display Awards Info */}
                 <td>{contact.wonOscar === true && "🏆"}</td>
