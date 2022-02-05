@@ -4,44 +4,21 @@ import contacts from "./contacts.json";
 
 function App() {
   const [contactsList, setContacts] = useState(contacts.slice(0, 5));
-  console.log(contactsList);
-  // console.log(contacts);
 
-  const addRandomContact = (id) => {
-    const randomContact = contacts[Math.floor(Math.random() * contacts.length)]; // contacts[random Index]
+  const addRandomContact = () => {
+    const randomIndex = Math.floor(Math.random() * (contacts.length - 1));
+    const randomContact = contacts[randomIndex];
+    const newContactList = [randomContact, ...contactsList];
 
-   /*  if (contactsList.includes(id !== contactsList.id) ) {
-      console.log(randomContact.id);
-      console.log(contactsList);
-      console.log(contactsList.id);
-      setContacts([randomContact, ...contactsList]);
-    } */
-
-    
-    setContacts([randomContact, ...contactsList]);
-
-    /* if (randomContact.id !== contactsList.id) {
-      console.log(randomContact.id);
-      console.log(contactsList);
-      console.log(contactsList.id);
-      setContacts([randomContact, ...contactsList]);
-    } */
-
-    /* const removeDuplicity = randomContact.id !== contactsList.id
-    
-    console.log(randomContact);
-
-
-    const mergeLists = [randomContact, ...contactsList]
-    const mergedListsWithoutDuplicatedItems = mergeLists.filter((item) => item.id !== id); */
+    if (!contactsList.includes(randomContact)) {
+      setContacts(newContactList);
+    } else {
+      addRandomContact();
+    }
 
     
-    // console.log(mergeLists);
+
     
-    /* setContacts([randomContact, ...contactsList]); */ // I want to change a state = add a 'randomContact' to my 'contactsList of 5 contacts'
-    // const mergedListsWithoutDuplicatedItems = mergeLists.filter((item) => item.id !== id);
-    // console.log(mergedListsWithoutDuplicatedItems);
-    // setContacts(mergedListsWithoutDuplicatedItems);
   };
 
   return (
